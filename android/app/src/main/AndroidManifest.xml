@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.biq.moneywhere">
    <application
-        android:label="moneywhere"
+        android:label="九快记账"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
