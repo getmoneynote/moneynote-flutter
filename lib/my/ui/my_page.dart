@@ -89,13 +89,13 @@ class MyPage extends StatelessWidget {
                   title: const Text('使用指南'),
                   trailing: const Icon(Icons.keyboard_arrow_right),
                   onTap: () {
-                    navigateTo(context, const WebViewPage(title: '使用指南', url: 'https://docs.jz.jiukuaitech.com/'));
+                    navigateTo(context, const WebViewPage(title: '使用指南', url: 'https://help.moneywhere.com'));
                   }
               ),
               const Divider(),
               const ListTile(
                   title: Text('当前版本号：'),
-                  trailing: Text('1.0.9')
+                  trailing: Text('1.0.10')
               ),
               const Divider(),
               Container(

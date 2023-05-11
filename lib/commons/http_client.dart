@@ -15,9 +15,11 @@ class HttpClient {
   init(){
     BaseOptions baseOptions = BaseOptions(
       // baseUrl: 'http://192.168.2.100:9092/api/v1/',
-      // baseUrl: 'http://m.jz.jiukuaitech.com/api/v1/',
       baseUrl: 'https://web.moneywhere.com/api/v1/',
       contentType: 'application/json',
+      headers: {
+        'Accept-Language': 'zh-CN'
+      },
       connectTimeout: const Duration(seconds: 100),
       receiveTimeout: const Duration(seconds: 100),
     );
