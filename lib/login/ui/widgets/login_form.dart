@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'index.dart';
 import '/login/index.dart';
@@ -28,8 +29,8 @@ class LoginForm extends StatelessWidget {
             height: 50,
             child: SubmitBtn(),
           ),
-          SizedBox(height: 30),
-          SizedBox(
+          if (!kIsWeb) SizedBox(height: 30),
+          if (!kIsWeb) SizedBox(
             width: double.infinity,
             height: 50,
             child: WeChatBtn(),

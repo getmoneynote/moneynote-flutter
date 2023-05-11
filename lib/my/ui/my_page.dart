@@ -95,7 +95,7 @@ class MyPage extends StatelessWidget {
               const Divider(),
               const ListTile(
                   title: Text('当前版本号：'),
-                  trailing: Text('1.0.10')
+                  trailing: Text('1.0.11')
               ),
               const Divider(),
               Container(
