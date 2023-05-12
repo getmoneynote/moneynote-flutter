@@ -16,13 +16,13 @@ class AccountAdjustBloc extends Bloc<AccountAdjustEvent, AccountAdjustState> {
     on<AdjustSubmitted>(_onSubmitted);
   }
 
-  void _onFieldChanged(AdjustFieldChanged event, Emitter<AccountAdjustState> emit) {
+  void _onFieldChanged(event, emit) {
     emit(state.copyWith(
       form: { ...state.form, ...event.field },
     ));
   }
 
-  void _onBalanceChanged(AdjustBalanceChanged event, Emitter<AccountAdjustState> emit) {
+  void _onBalanceChanged(event, emit) {
     final balance = NotEmptyNumFormz.dirty(value: event.value);
     emit(state.copyWith(
       balance: balance,
@@ -31,7 +31,7 @@ class AccountAdjustBloc extends Bloc<AccountAdjustEvent, AccountAdjustState> {
     ));
   }
 
-  void _onDefaultLoaded(AdjustDefaultLoaded event, Emitter<AccountAdjustState> emit) {
+  void _onDefaultLoaded(event, emit) {
     emit(state.copyWith(
       valid: true,
       submissionStatus: FormzSubmissionStatus.initial,
@@ -50,7 +50,7 @@ class AccountAdjustBloc extends Bloc<AccountAdjustEvent, AccountAdjustState> {
     ));
   }
 
-  void _onSubmitted(AdjustSubmitted event, Emitter<AccountAdjustState> emit) async {
+  void _onSubmitted(event, emit) async {
     if (state.valid) {
       try {
         emit(state.copyWith(submissionStatus: FormzSubmissionStatus.inProgress));

@@ -127,7 +127,6 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
                       TagsInput(action: widget.action),
                       ConfirmInput(action: widget.action),
                       const IncludeInput(),
-                      Text(state.form['confirm'].toString()),
                       if (state.form['confirm'] ?? true) const UpdateBalanceInput(),
                       const NotesInput(),
                     ],

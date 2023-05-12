@@ -16,7 +16,7 @@ class ListPageBloc extends Bloc<ListPageEvent, ListPageState> {
     on<ListPageQueryReset>(_onQueryReset);
   }
 
-  void _onInitial(ListPageInitial event, Emitter<ListPageState> emit) async {
+  void _onInitial(event, emit) async {
     emit(state.copyWith(
       prefix: event.prefix,
       query: {...{sortParameter : ''}, ...?event.query},
@@ -27,7 +27,7 @@ class ListPageBloc extends Bloc<ListPageEvent, ListPageState> {
     add(ListPageReloaded());
   }
 
-  void _onReloaded(_, Emitter<ListPageState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,
@@ -59,7 +59,7 @@ class ListPageBloc extends Bloc<ListPageEvent, ListPageState> {
     }
   }
 
-  void _onLoadMore(_, Emitter<ListPageState> emit) async {
+  void _onLoadMore(_, emit) async {
     try {
       emit(state.copyWith(
         loadMoreStatus: LoadDataStatus.progress,
@@ -84,21 +84,21 @@ class ListPageBloc extends Bloc<ListPageEvent, ListPageState> {
     }
   }
 
-  void _onQueryChanged(ListPageQueryChanged event, Emitter<ListPageState> emit) async {
+  void _onQueryChanged(event, emit) async {
     emit(state.copyWith(
       query: {...state.query, ...event.query},
     ));
     // add(ListPageReloaded());
   }
 
-  void _onSortQueryChanged(ListPageSortQueryChanged event, Emitter<ListPageState> emit) async {
+  void _onSortQueryChanged(event, emit) async {
     emit(state.copyWith(
       query: {...state.query, ...event.query},
     ));
     add(ListPageReloaded());
   }
 
-  void _onQueryReset(ListPageQueryReset event, Emitter<ListPageState> emit) async {
+  void _onQueryReset(event, emit) async {
     emit(state.copyWith(
       query: {sortParameter : '', ...event.query},
     ));

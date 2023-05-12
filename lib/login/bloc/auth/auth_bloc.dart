@@ -14,7 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoggedOut>(_onLoggedOut);
   }
 
-  void _onAppStarted(_, Emitter<AuthState> emit) async {
+  void _onAppStarted(_, emit) async {
     final String token = await getToken();
     if (token.isNotEmpty) {
       try {
@@ -34,7 +34,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  void _onLoggedOut(_, Emitter<AuthState> emit) async {
+  void _onLoggedOut(_, emit) async {
     await deleteToken();
     emit(state.copyWith(
       status: AuthStatus.unauthenticated,
@@ -42,7 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     ));
   }
 
-  void _onLoggedIn(LoggedIn event, Emitter<AuthState> emit) async {
+  void _onLoggedIn(event, emit) async {
     await saveToken(event.token);
     emit(state.copyWith(
       status: AuthStatus.authenticated,

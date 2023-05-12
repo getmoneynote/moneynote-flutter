@@ -48,7 +48,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     return true;
   }
 
-  void _onFieldChanged(FieldChanged event, Emitter<FlowFormState> emit) {
+  void _onFieldChanged(event, emit) {
     emit(state.copyWith(
       form: { ...state.form, ...event.field },
     ));
@@ -57,14 +57,14 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onCurrentBookChanged(CurrentBookChanged event, Emitter<FlowFormState> emit) {
+  void _onCurrentBookChanged(event, emit) {
     emit(state.copyWith(
       currentBook: event.currentBook,
       form: { ...state.form, ...{ 'bookId': event.currentBook['id'] } }
     ));
   }
 
-  void _onAccountChanged(AccountChanged event, Emitter<FlowFormState> emit) {
+  void _onAccountChanged(event, emit) {
     emit(state.copyWith(
       account: event.value,
       form: {...state.form, 'accountId': event.value['id']},
@@ -84,7 +84,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onCategoryChanged(CategoryChanged event, Emitter<FlowFormState> emit) {
+  void _onCategoryChanged(event, emit) {
     emit(state.copyWith(
       form: {
         ...state.form,
@@ -107,7 +107,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onCategoryAmountChanged(CategoryAmountChanged event, Emitter<FlowFormState> emit) {
+  void _onCategoryAmountChanged(event, emit) {
     var newCategoryAmount = [...state.categoryAmount];
     var target = newCategoryAmount.firstWhere((e) => e['categoryId'] == event.categoryId);
     target['amount'] = event.amount;
@@ -119,7 +119,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onCategoryConvertedAmountChanged(CategoryConvertedAmountChanged event, Emitter<FlowFormState> emit) {
+  void _onCategoryConvertedAmountChanged(event, emit) {
     var newCategoryAmount = [...state.categoryAmount];
     var target = newCategoryAmount.firstWhere((e) => e['categoryId'] == event.categoryId);
     target['convertedAmount'] = event.convertedAmount;
@@ -131,13 +131,13 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onTabIndexChanged(TabIndexChanged event, Emitter<FlowFormState> emit) {
+  void _onTabIndexChanged(event, emit) {
     emit(state.copyWith(
       tabIndex: event.tabIndex
     ));
   }
 
-  void _onDefaultLoaded(DefaultLoaded event, Emitter<FlowFormState> emit) {
+  void _onDefaultLoaded(event, emit) {
     // 默认为不是新增操作，拉取currentRow的数据。
     var initAccount = event.currentRow['account'];
     var initCategories = List<Map<String, dynamic>>.from(event.currentRow['categories']?.map((e) => e['category']) ?? [ ]);
@@ -200,7 +200,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     ));
   }
 
-  void _onSubmitted(Submitted event, Emitter<FlowFormState> emit) async {
+  void _onSubmitted(event, emit) async {
     if (state.valid) {
       try {
         emit(state.copyWith(submissionStatus: FormzSubmissionStatus.inProgress));

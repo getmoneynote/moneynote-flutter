@@ -14,7 +14,7 @@ class SelectOptionsBloc extends Bloc<SelectOptionsEvent, SelectOptionsState> {
     on<SelectOptionsReloaded>(_onReloaded);
   }
 
-  void _onInitial(SelectOptionsInitial event, Emitter<SelectOptionsState> emit) async {
+  void _onInitial(event, emit) async {
     emit(state.copyWith(
       map: {
         ...state.map,
@@ -24,7 +24,7 @@ class SelectOptionsBloc extends Bloc<SelectOptionsEvent, SelectOptionsState> {
     add(SelectOptionsReloaded(prefix: event.prefix));
   }
 
-  void _onReloaded(SelectOptionsReloaded event, Emitter<SelectOptionsState> emit) async {
+  void _onReloaded(event, emit) async {
     try {
       Map<String, SelectOptionsModel> newMap = {...state.map};
       newMap[event.prefix] = newMap[event.prefix]!.copyWith(

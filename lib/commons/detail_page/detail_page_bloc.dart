@@ -17,7 +17,7 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     on<FlowDetailPageDeletedWithAccount>(_onDeletedWithAccount);
   }
 
-  void _onInitial(DetailPageInitial event, Emitter<DetailPageState> emit) async {
+  void _onInitial(event, emit) async {
     emit(state.copyWith(
         prefix: event.prefix,
         id: event.id,
@@ -25,7 +25,7 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     add(DetailPageReloaded());
   }
 
-  void _onReloaded(_, Emitter<DetailPageState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,
@@ -40,7 +40,7 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     }
   }
 
-  void _onDeleted(_, Emitter<DetailPageState> emit) async {
+  void _onDeleted(_, emit) async {
     try {
       emit(state.copyWith(deleteStatus: LoadDataStatus.progress));
       final result = await BaseRepository.delete(state.prefix, state.id);
@@ -68,7 +68,7 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     }
   }
 
-  void _onToggled(_, Emitter<DetailPageState> emit) async {
+  void _onToggled(_, emit) async {
     try {
       emit(state.copyWith(toggleStatus: LoadDataStatus.progress));
       final result = await BaseRepository.toggle(state.prefix, state.id);

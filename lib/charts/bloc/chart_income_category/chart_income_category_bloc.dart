@@ -15,7 +15,7 @@ class ChartIncomeCategoryBloc extends Bloc<ChartIncomeCategoryEvent, ChartIncome
     on<ChartIncomeCategoryQueryChanged>(_onQueryChanged);
   }
 
-  void _onInitial(ChartIncomeCategoryInitial event, Emitter<ChartIncomeCategoryState> emit) async {
+  void _onInitial(event, emit) async {
     emit(state.copyWith(
       query: { ...?event.query },
       status: LoadDataStatus.initial,
@@ -24,7 +24,7 @@ class ChartIncomeCategoryBloc extends Bloc<ChartIncomeCategoryEvent, ChartIncome
     add(ChartIncomeCategoryReloaded());
   }
 
-  void _onReloaded(_, Emitter<ChartIncomeCategoryState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,
@@ -43,7 +43,7 @@ class ChartIncomeCategoryBloc extends Bloc<ChartIncomeCategoryEvent, ChartIncome
     }
   }
 
-  void _onQueryChanged(ChartIncomeCategoryQueryChanged event, Emitter<ChartIncomeCategoryState> emit) async {
+  void _onQueryChanged(event, emit) async {
     emit(state.copyWith(
       query: {...state.query, ...event.query},
     ));

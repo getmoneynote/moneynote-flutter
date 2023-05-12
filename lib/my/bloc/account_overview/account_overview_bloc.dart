@@ -13,7 +13,7 @@ class AccountOverviewBloc extends Bloc<AccountOverviewEvent, AccountOverviewStat
     on<AccountOverviewReloaded>(_onReloaded);
   }
 
-  void _onReloaded(_, Emitter<AccountOverviewState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,

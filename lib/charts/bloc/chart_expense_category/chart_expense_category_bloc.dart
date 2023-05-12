@@ -15,7 +15,7 @@ class ChartExpenseCategoryBloc extends Bloc<ChartExpenseCategoryEvent, ChartExpe
     on<ChartExpenseCategoryQueryChanged>(_onQueryChanged);
   }
 
-  void _onInitial(ChartExpenseCategoryInitial event, Emitter<ChartExpenseCategoryState> emit) async {
+  void _onInitial(event, emit) async {
     emit(state.copyWith(
       query: { ...?event.query },
       status: LoadDataStatus.initial,
@@ -24,7 +24,7 @@ class ChartExpenseCategoryBloc extends Bloc<ChartExpenseCategoryEvent, ChartExpe
     add(ChartExpenseCategoryReloaded());
   }
 
-  void _onReloaded(_, Emitter<ChartExpenseCategoryState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,
@@ -43,7 +43,7 @@ class ChartExpenseCategoryBloc extends Bloc<ChartExpenseCategoryEvent, ChartExpe
     }
   }
 
-  void _onQueryChanged(ChartExpenseCategoryQueryChanged event, Emitter<ChartExpenseCategoryState> emit) async {
+  void _onQueryChanged(event, emit) async {
     emit(state.copyWith(
       query: {...state.query, ...event.query},
     ));

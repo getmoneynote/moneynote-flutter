@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final AuthBloc authBloc;
 
-  void _onUsernameChanged(UsernameChanged event, Emitter<LoginState> emit) {
+  void _onUsernameChanged(event, emit) {
     final username = NotEmptyFormz.dirty(value: event.username);
     emit(state.copyWith(
       usernameFormz: username,
@@ -28,7 +28,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     ));
   }
 
-  void _onPasswordChanged(PasswordChanged event, Emitter<LoginState> emit) {
+  void _onPasswordChanged(event, emit) {
     final password = NotEmptyFormz.dirty(value: event.password);
     emit(state.copyWith(
       passwordFormz: password,
@@ -36,7 +36,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     ));
   }
 
-  void _onLoginButtonPressed(_, Emitter<LoginState> emit) async {
+  void _onLoginButtonPressed(_, emit) async {
     if (state.valid) {
       try {
         emit(state.copyWith(submissionStatus: FormzSubmissionStatus.inProgress));

@@ -16,13 +16,13 @@ class AccountFormBloc extends Bloc<AccountFormEvent, AccountFormState> {
     on<Submitted>(_onSubmitted);
   }
 
-  void _onFieldChanged(FieldChanged event, Emitter<AccountFormState> emit) {
+  void _onFieldChanged(event, emit) {
     emit(state.copyWith(
       form: { ...state.form, ...event.field },
     ));
   }
 
-  void _onNameChanged(NameChanged event, Emitter<AccountFormState> emit) {
+  void _onNameChanged(event, emit) {
     final name = NotEmptyFormz.dirty(value: event.name);
     emit(state.copyWith(
       nameFormz: name,
@@ -31,7 +31,7 @@ class AccountFormBloc extends Bloc<AccountFormEvent, AccountFormState> {
     ));
   }
 
-  void _onBalanceChanged(BalanceChanged event, Emitter<AccountFormState> emit) {
+  void _onBalanceChanged(event, emit) {
     final balance = NotEmptyNumFormz.dirty(value: event.balance);
     emit(state.copyWith(
       balanceFormz: balance,
@@ -40,7 +40,7 @@ class AccountFormBloc extends Bloc<AccountFormEvent, AccountFormState> {
     ));
   }
 
-  void _onDefaultLoaded(DefaultLoaded event, Emitter<AccountFormState> emit) {
+  void _onDefaultLoaded(event, emit) {
     // emit(state.copyWith(
     //   valid: event.action != 1,
     //   submissionStatus: FormzSubmissionStatus.initial,
@@ -84,7 +84,7 @@ class AccountFormBloc extends Bloc<AccountFormEvent, AccountFormState> {
 
   }
 
-  void _onSubmitted(Submitted event, Emitter<AccountFormState> emit) async {
+  void _onSubmitted(event, emit) async {
     if (state.valid) {
       try {
         emit(state.copyWith(submissionStatus: FormzSubmissionStatus.inProgress));

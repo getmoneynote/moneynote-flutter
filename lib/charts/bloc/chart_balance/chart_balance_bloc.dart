@@ -13,7 +13,7 @@ class ChartBalanceBloc extends Bloc<ChartBalanceEvent, ChartBalanceState> {
     on<ChartBalanceReloaded>(_onReloaded);
   }
 
-  void _onReloaded(_, Emitter<ChartBalanceState> emit) async {
+  void _onReloaded(_, emit) async {
     try {
       emit(state.copyWith(
         status: LoadDataStatus.progress,
