@@ -11,3 +11,4 @@ export 'include_input.dart';
 export 'notes_input.dart';
 export 'transfer_to_account_input.dart';
 export 'transfer_amount_input.dart';
+export 'update_balance_input.dart';

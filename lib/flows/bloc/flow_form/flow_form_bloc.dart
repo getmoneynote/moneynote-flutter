@@ -178,6 +178,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
         'tags': List<Map<String, dynamic>>.from(event.currentRow['tags']?.map((e) => e['tag']) ?? [ ]),
         if (event.action != 2) 'confirm': true,
         if (event.action == 1 || event.action == 3) 'include': true, // 新增和复制是include都为true，
+        'updateBalance': true,
         if (event.action == 3) 'notes': null, //复制时notes为空
       },
       action: event.action,

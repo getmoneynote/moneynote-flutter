@@ -80,7 +80,8 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
         buildWhen: (previous, current) =>
         previous.valid != current.valid ||
             previous.submissionStatus != current.submissionStatus ||
-            previous.tabIndex != current.tabIndex,
+            previous.tabIndex != current.tabIndex ||
+            previous.form['confirm'] != current.form['confirm'],
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -126,6 +127,8 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
                       TagsInput(action: widget.action),
                       ConfirmInput(action: widget.action),
                       const IncludeInput(),
+                      Text(state.form['confirm'].toString()),
+                      if (state.form['confirm'] ?? true) const UpdateBalanceInput(),
                       const NotesInput(),
                     ],
                   ),
