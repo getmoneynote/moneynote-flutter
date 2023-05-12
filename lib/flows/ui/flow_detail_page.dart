@@ -27,9 +27,9 @@ class FlowDetailPage extends StatelessWidget {
           fullDialog(context, FlowFormPage(action: 2, currentRow: item));
         }
       },
-      onDeletePressed: (_) {
-        BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
-      },
+      // onDeletePressed: (_) {
+      //   BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
+      // },
     );
   }
 
@@ -64,9 +64,9 @@ class FlowDetailPage extends StatelessWidget {
   }
 
   Widget _buildActionBar(BuildContext context, Map<String, dynamic> item) {
-    return OverflowBar(
-      overflowAlignment: OverflowBarAlignment.center,
+    return Wrap(
       spacing: 15,
+      alignment: WrapAlignment.center,
       children: [
         ElevatedButton(
           onPressed: () {
@@ -91,6 +91,30 @@ class FlowDetailPage extends StatelessWidget {
           ),
           onConfirm: () {
             BlocProvider.of<SimpleActionBloc>(context).add(SimpleActionReloaded(uri: "balance-flows/${item['id']}/confirm"));
+          }
+        ),
+        DialogConfirm(
+          content: item['confirm'] ? '此操作会更新账户余额，确认此操作吗？' : '删除之后无法恢复，确定删除吗？',
+          child: AbsorbPointer(
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: const Text('删除且更新账户'),
+            ),
+          ),
+          onConfirm: () {
+            BlocProvider.of<DetailPageBloc>(context).add(FlowDetailPageDeletedWithAccount());
+          }
+        ),
+        DialogConfirm(
+          content: '删除之后无法恢复，确定删除吗？',
+          child: AbsorbPointer(
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: const Text('删除不更新账户'),
+            ),
+          ),
+          onConfirm: () {
+            BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
           }
         ),
       ],
