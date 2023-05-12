@@ -42,13 +42,13 @@ class _TransferToAccountInputState extends State<TransferToAccountInput> {
           }
         }
         return MySelect(
-          key: UniqueKey(),
           label: '转入账户',
           required: true,
           options: options,
           value: state.form['toId'],
           onChange: (value) {
-            context.read<FlowFormBloc>().add(FieldChanged({ 'toId': value }));
+            // context.read<FlowFormBloc>().add(FieldChanged({ 'toId': value }));
+            context.read<FlowFormBloc>().add(ToAccountChanged( options.firstWhere((e) => e['id'] == value) ));
           },
           loading: optionModel.status != LoadDataStatus.success,
         );

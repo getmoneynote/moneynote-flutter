@@ -11,6 +11,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
   FlowFormBloc() : super(const FlowFormState()) {
     on<FieldChanged>(_onFieldChanged);
     on<AccountChanged>(_onAccountChanged);
+    on<ToAccountChanged>(_onToAccountChanged);
     on<CategoryChanged>(_onCategoryChanged);
     on<CategoryAmountChanged>(_onCategoryAmountChanged);
     on<CategoryConvertedAmountChanged>(_onCategoryConvertedAmountChanged);
@@ -67,6 +68,16 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
     emit(state.copyWith(
       account: event.value,
       form: {...state.form, 'accountId': event.value['id']},
+    ));
+    emit(state.copyWith(
+      valid: _checkValid(),
+    ));
+  }
+
+  void _onToAccountChanged(event, emit) {
+    emit(state.copyWith(
+      toAccount: event.value,
+      form: {...state.form, 'toId': event.value['id']},
     ));
     emit(state.copyWith(
       valid: _checkValid(),

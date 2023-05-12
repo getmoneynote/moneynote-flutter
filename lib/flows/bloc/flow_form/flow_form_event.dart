@@ -20,6 +20,13 @@ class AccountChanged extends FlowFormEvent {
   List<Object> get props => [value];
 }
 
+class ToAccountChanged extends FlowFormEvent {
+  const ToAccountChanged(this.value);
+  final dynamic value;
+  @override
+  List<Object> get props => [value];
+}
+
 class CategoryChanged extends FlowFormEvent {
   const CategoryChanged(this.categories);
   final List<dynamic> categories;
