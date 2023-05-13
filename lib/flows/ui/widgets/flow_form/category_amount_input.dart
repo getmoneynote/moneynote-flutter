@@ -17,6 +17,7 @@ class CategoryAmountInput extends StatelessWidget {
             return Column(
               children: [
                 MyFormText(
+                  key: UniqueKey(),
                   required: true,
                   label: "${e['categoryName']}金额",
                   value: e['amount'],
@@ -25,6 +26,7 @@ class CategoryAmountInput extends StatelessWidget {
                   },
                 ),
                 if (state.needConvert) MyFormText(
+                  key: UniqueKey(),
                   required: true,
                   label: "${e['categoryName']}折合${state.convertCode}",
                   value: e['convertedAmount'],
