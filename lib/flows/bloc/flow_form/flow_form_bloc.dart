@@ -67,7 +67,7 @@ class FlowFormBloc extends Bloc<FlowFormEvent, FlowFormState> {
   void _onAccountChanged(event, emit) {
     emit(state.copyWith(
       account: event.value,
-      form: {...state.form, 'accountId': event.value['id']},
+      form: {...state.form, 'accountId': event.value?['id'] ?? ''},
     ));
     emit(state.copyWith(
       valid: _checkValid(),

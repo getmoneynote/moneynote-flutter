@@ -60,10 +60,14 @@ class _PayeeInputState extends State<PayeeInput> {
           key: UniqueKey(),
           label: '交易对象',
           required: false,
+          allowClear: true,
           options: optionModel.options,
           value: state.form['payeeId'],
           onChange: (value) {
             context.read<FlowFormBloc>().add(FieldChanged({ 'payeeId': value }));
+          },
+          onClear: () {
+            context.read<FlowFormBloc>().add(const FieldChanged({ 'payeeId': '' }));
           },
           loading: optionModel.status != LoadDataStatus.success,
         );

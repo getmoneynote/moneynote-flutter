@@ -14,7 +14,7 @@ class HttpClient {
   late Dio _dio;
   init(){
     BaseOptions baseOptions = BaseOptions(
-      // baseUrl: 'http://192.168.2.100:9092/api/v1/',
+      // baseUrl: 'http://127.0.0.1:9092/api/v1/',
       baseUrl: 'https://m.moneywhere.com/api/v1/',
       contentType: 'application/json',
       headers: {

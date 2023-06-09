@@ -51,10 +51,14 @@ class _AccountInputState extends State<AccountInput> {
         return MySelect(
           label: state.tabIndex == 2 ? '转出账户' : '账户',
           required: state.tabIndex == 2 ? true : false,
+          allowClear: true,
           options: options,
           value: state.form['accountId'],
           onChange: (value) {
             context.read<FlowFormBloc>().add(AccountChanged( options.firstWhere((e) => e['id'] == value) ));
+          },
+          onClear: () {
+            context.read<FlowFormBloc>().add(const AccountChanged(null));
           },
           loading: optionModel.status != LoadDataStatus.success,
         );
