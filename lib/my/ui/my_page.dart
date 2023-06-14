@@ -93,9 +93,17 @@ class MyPage extends StatelessWidget {
                   }
               ),
               const Divider(),
+              ListTile(
+                  title: const Text('后台地址'),
+                  trailing: Text(session['apiUrl']),
+                  onTap: () {
+                    //Navigator.pushNamed(context, );
+                  }
+              ),
+              const Divider(),
               const ListTile(
                   title: Text('当前版本号：'),
-                  trailing: Text('1.0.16')
+                  trailing: Text('1.0.17')
               ),
               const Divider(),
               Container(

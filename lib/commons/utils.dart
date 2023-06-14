@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '/commons/index.dart';
 
 enum LoadDataStatus { initial, progress, success, empty, failure }
 
@@ -109,6 +110,20 @@ Future<String> getToken() async {
 Future<bool> deleteToken() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   return await prefs.remove('accessToken');
+}
+
+Future<bool> saveApiUrl(String url) async {
+  session['apiUrl'] = '$url/';
+  HttpClient().init();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.setString('apiUrl', session['apiUrl']);
+}
+
+Future<String> getApiUrl() async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final String apiUrl = prefs.getString('apiUrl') ?? '';
+  session['apiUrl'] = apiUrl;
+  return apiUrl;
 }
 
 String removeDecimalZero(num? n) {

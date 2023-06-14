@@ -12,16 +12,16 @@ class HttpClient {
   }
 
   late Dio _dio;
-  init(){
+  init() {
     BaseOptions baseOptions = BaseOptions(
-      // baseUrl: 'http://127.0.0.1:9092/api/v1/',
-      baseUrl: 'https://m.moneywhere.com/api/v1/',
+      // baseUrl: 'http://192.168.2.4:9092/api/v1/',
+      baseUrl: session['apiUrl'],
       contentType: 'application/json',
       headers: {
         'Accept-Language': 'zh-CN'
       },
-      connectTimeout: const Duration(seconds: 100),
-      receiveTimeout: const Duration(seconds: 100),
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
     );
     _dio = Dio(baseOptions);
     _dio.interceptors.add(TokenInterceptor());

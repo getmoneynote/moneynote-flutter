@@ -20,6 +20,13 @@ class PasswordChanged extends LoginEvent {
   List<Object> get props => [password];
 }
 
+class ApiUrlChanged extends LoginEvent {
+  final String apiUrl;
+  const ApiUrlChanged(this.apiUrl);
+  @override
+  List<Object> get props => [apiUrl];
+}
+
 class LoginButtonPressed extends LoginEvent {
   const LoginButtonPressed();
 }

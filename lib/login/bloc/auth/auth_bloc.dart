@@ -15,8 +15,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onAppStarted(_, emit) async {
+    final String apiUrl = await getApiUrl();
     final String token = await getToken();
-    if (token.isNotEmpty) {
+    if (apiUrl.isNotEmpty && token.isNotEmpty) {
       try {
         emit(state.copyWith(
           status: AuthStatus.authenticated,

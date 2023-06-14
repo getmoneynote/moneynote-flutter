@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  moneywhere-user-fe:
+    build: .
+    environment:
+      USER_API_HOST: http://192.168.2.4:9092
+    ports:
+      - "9000:80"
