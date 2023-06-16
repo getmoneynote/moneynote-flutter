@@ -1,16 +1,7 @@
-# moneywhere
+# 九快记账App
 
-A new Flutter project.
+本项目是九快记账App端源代码，使用Flutter开发，支持安卓和iOS端。
 
-## Getting Started
+[安卓APK下载地址](https://file.moneywhere.com/moneywhere1.0.apk)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+安装后在登录界面可将后端地址改为自己服务器的地址使用。
