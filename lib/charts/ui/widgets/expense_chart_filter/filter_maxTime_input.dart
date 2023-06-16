@@ -13,7 +13,7 @@ class FilterMaxTimeInput extends StatelessWidget {
         selector: (state) => state.query['maxTime'],
         builder: (context, state) {
           return MyFormDate(
-            label: '起始时间',
+            label: '终止时间',
             value: state,
             andTime: false,
             onChange: (value) => context.read<ChartExpenseCategoryBloc>().add(ChartExpenseCategoryQueryChanged({'maxTime': value})),

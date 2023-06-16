@@ -113,7 +113,7 @@ Future<bool> deleteToken() async {
 }
 
 Future<bool> saveApiUrl(String url) async {
-  session['apiUrl'] = '$url/';
+  session['apiUrl'] = url;
   HttpClient().init();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   return prefs.setString('apiUrl', session['apiUrl']);
