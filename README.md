@@ -6,10 +6,15 @@
 
 安装后在登录界面可将后端地址改为自己服务器的地址使用。
 
+
+
 ![Screen1](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/1.jpg "Screen1")
 
-![Screen2](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/1.jpg "Screen2")
 
-![Screen3](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/1.jpg "Screen3")
+![Screen2](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/2.jpg "Screen2")
 
-![Screen4](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/1.jpg "Screen4")
+
+![Screen3](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/3.jpg "Screen3")
+
+
+![Screen4](https://raw.githubusercontent.com/getmoneynote/moneywhere_user_flutter/main/screenshots/4.jpg "Screen4")
