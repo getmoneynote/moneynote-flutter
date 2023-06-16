@@ -57,7 +57,7 @@ class _AssetSheetState extends State<AssetSheet> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text('总金额', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                Text(removeDecimalZero(calChartTotal(data)), style: const TextStyle(color: Colors.black, fontSize: 18))
+                Text(calChartTotal(data).toStringAsFixed(2), style: const TextStyle(color: Colors.black, fontSize: 18))
               ],
             )
         )
