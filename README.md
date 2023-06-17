@@ -4,7 +4,7 @@
 
 [安卓APK下载地址](https://file.moneywhere.com/moneywhere1.0.apk)
 
-安装后在登录界面可将后端地址改为自己服务器的地址使用。
+安装后在登录界面可将后端地址改为自己服务器的地址使用。示例：http://www.xxx.com/api/v1/ （别忘了最后的斜杠）
 
 
 
