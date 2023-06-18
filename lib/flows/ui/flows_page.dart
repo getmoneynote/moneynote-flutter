@@ -67,7 +67,15 @@ class FlowsPage extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(item['amount'].toStringAsFixed(2), style: amountStyle),
+              if (item['accountName']?.isNotEmpty ?? false)
+                Column(
+                  children: [
+                    Text(item['amount'].toStringAsFixed(2), style: amountStyle),
+                    Text(item['accountName'], style: theme.textTheme.bodySmall),
+                  ],
+                ),
+              if (item['accountName']?.isEmpty ?? true)
+                Text(item['amount'].toStringAsFixed(2), style: amountStyle),
               const Icon(Icons.keyboard_arrow_right)
             ],
           ),
