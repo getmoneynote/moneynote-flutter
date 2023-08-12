@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:moneywhere/flows/data/flow_repository.dart';
 import '../base_repository.dart';
 import '/commons/utils.dart';
 
@@ -14,7 +13,6 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     on<DetailPageReloaded>(_onReloaded);
     on<DetailPageDeleted>(_onDeleted);
     on<DetailPageToggled>(_onToggled);
-    on<FlowDetailPageDeletedWithAccount>(_onDeletedWithAccount);
   }
 
   void _onInitial(event, emit) async {
@@ -44,20 +42,6 @@ class DetailPageBloc extends Bloc<DetailPageEvent, DetailPageState> {
     try {
       emit(state.copyWith(deleteStatus: LoadDataStatus.progress));
       final result = await BaseRepository.delete(state.prefix, state.id);
-      if (result) {
-        emit(state.copyWith(deleteStatus: LoadDataStatus.success));
-      } else {
-        emit(state.copyWith(deleteStatus: LoadDataStatus.failure));
-      }
-    } catch (_) {
-      emit(state.copyWith(deleteStatus: LoadDataStatus.failure));
-    }
-  }
-
-  void _onDeletedWithAccount(_, emit) async {
-    try {
-      emit(state.copyWith(deleteStatus: LoadDataStatus.progress));
-      final result = await FlowRepository.deleteWithAccount(state.id);
       if (result) {
         emit(state.copyWith(deleteStatus: LoadDataStatus.success));
       } else {

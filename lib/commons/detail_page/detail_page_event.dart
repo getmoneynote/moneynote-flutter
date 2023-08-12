@@ -22,5 +22,3 @@ class DetailPageReloaded extends DetailPageEvent { }
 class DetailPageDeleted extends DetailPageEvent { }
 
 class DetailPageToggled extends DetailPageEvent { }
-
-class FlowDetailPageDeletedWithAccount extends DetailPageEvent { }

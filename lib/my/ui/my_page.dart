@@ -94,8 +94,8 @@ class MyPage extends StatelessWidget {
               ),
               const Divider(),
               ListTile(
-                  title: const Text('后台地址'),
-                  trailing: Text(session['apiUrl']),
+                  title: const Text('后台地址：'),
+                  subtitle: Text(session['apiUrl']),
                   onTap: () {
                     //Navigator.pushNamed(context, );
                   }
@@ -103,7 +103,7 @@ class MyPage extends StatelessWidget {
               const Divider(),
               const ListTile(
                   title: Text('当前版本号：'),
-                  trailing: Text('1.0.19')
+                  trailing: Text('1.0.20')
               ),
               const Divider(),
               Container(

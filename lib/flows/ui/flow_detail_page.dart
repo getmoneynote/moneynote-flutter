@@ -98,25 +98,13 @@ class FlowDetailPage extends StatelessWidget {
           child: AbsorbPointer(
             child: ElevatedButton(
               onPressed: () {  },
-              child: const Text('删除且更新账户'),
-            ),
-          ),
-          onConfirm: () {
-            BlocProvider.of<DetailPageBloc>(context).add(FlowDetailPageDeletedWithAccount());
-          }
-        ),
-        DialogConfirm(
-          content: '删除之后无法恢复，确定删除吗？',
-          child: AbsorbPointer(
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: const Text('删除不更新账户'),
+              child: const Text('删除'),
             ),
           ),
           onConfirm: () {
             BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
           }
-        ),
+        )
       ],
     );
   }
