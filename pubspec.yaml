@@ -33,3 +33,10 @@ flutter:
   assets:
     - assets/
   generate: true
+
+flutter_launcher_icons:
+flutter_icons:
+  android: false
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/logo.png'
