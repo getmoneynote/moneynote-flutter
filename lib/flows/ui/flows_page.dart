@@ -61,21 +61,19 @@ class FlowsPage extends StatelessWidget {
         if (item['type'] == 'EXPENSE') amountStyle = amountStyle.copyWith(color: Colors.green);
         if (item['type'] == 'INCOME') amountStyle = amountStyle.copyWith(color: Colors.red);
         return ListTile(
-          dense: true,
+          dense: false,
           title: Text(item['listTitle'], style: theme.textTheme.bodyLarge),
           subtitle: Text('${item["typeName"]} ${dateFormat(item["createTime"])} ${item["tagsName"]}', style: theme.textTheme.bodySmall),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (item['accountName']?.isNotEmpty ?? false)
-                Column(
-                  children: [
-                    Text(item['amount'].toStringAsFixed(2), style: amountStyle),
-                    Text(item['accountName'], style: theme.textTheme.bodySmall),
-                  ],
-                ),
-              if (item['accountName']?.isEmpty ?? true)
-                Text(item['amount'].toStringAsFixed(2), style: amountStyle),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(item['amount'].toStringAsFixed(2), style: amountStyle),
+                  if (item['accountName']?.isNotEmpty ?? false) Text(item['accountName'], style: theme.textTheme.bodySmall),
+                ],
+              ),
               const Icon(Icons.keyboard_arrow_right)
             ],
           ),
