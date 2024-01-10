@@ -1,2 +1,0 @@
-flutter build web --no-tree-shake-icons
-copy build/web/* web/
