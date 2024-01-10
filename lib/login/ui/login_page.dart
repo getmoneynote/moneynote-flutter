@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Image.asset('assets/logo.png', width: 50, height: 50),
                     const SizedBox(width: 20),
-                    Text("九快记账", style: Theme.of(context).textTheme.titleLarge?.apply(fontWeightDelta: 2))
+                    Text("九快记账", style: Theme.of(context).textTheme.titleLarge?.apply(fontWeightDelta: 2)),
                   ],
                 )
               ),
@@ -33,6 +33,8 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: const LoginForm(),
               ),
+              const SizedBox(height: 20),
+              Text("v1.0.23", style: Theme.of(context).textTheme.bodySmall)
             ],
           )
         ),
