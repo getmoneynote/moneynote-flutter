@@ -1,7 +1,7 @@
 FROM nginx:1.21-alpine
 COPY ./docker/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY ./docker/gzip.conf /etc/nginx/conf.d/gzip.conf
-COPY ./build/web/ /usr/share/nginx/html
+COPY ./web/ /usr/share/nginx/html
 
 #FROM node:16-slim as build
 #WORKDIR /workspace/app
