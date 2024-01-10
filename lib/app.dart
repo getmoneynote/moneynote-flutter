@@ -59,6 +59,9 @@ class App extends StatelessWidget {
       BlocProvider(
           create: (context) => LanguageBloc()
       ),
+      BlocProvider(
+          create: (_) => FlowImageBloc()
+      ),
     ];
   }
 

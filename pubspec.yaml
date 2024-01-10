@@ -23,6 +23,7 @@ dependencies:
   fluwx: ^3.13.0
   sentry_flutter: ^7.5.2
   flutter_launcher_icons: ^0.13.1
+  image_picker: ^0.8.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
