@@ -1,7 +1,7 @@
 name: moneywhere
 description: A new Flutter project.
 publish_to: 'none'
-version: 1.0.20
+version: 1.0.24
 environment:
   sdk: '>=2.19.4 <3.0.0'
 dependencies:

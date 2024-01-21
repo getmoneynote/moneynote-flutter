@@ -70,8 +70,10 @@ class _AccountDetailPageState extends State<AccountDetailPage> {
               space: false,
             ),
             DetailItem(label: '币种：', value: item['currencyCode']),
-            if (item['currencyCode'] != groupCurrencyCode)
+            if (item['currencyCode'] != groupCurrencyCode) ...[
               DetailItem(label: '折合$groupCurrencyCode：', value: item['convertedBalance'].toStringAsFixed(2)),
+              DetailItem(label: '汇率：', value: item['rate'].toString()),
+            ],
             if (item['type'] == 'CREDIT' || item['type'] == 'DEBT') ...[
               DetailItem(label: '额度：', value: item['creditLimit']?.toStringAsFixed(2)),
               DetailItem(label: '剩余额度：', value: item['remainLimit']?.toStringAsFixed(2)),

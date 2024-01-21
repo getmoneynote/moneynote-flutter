@@ -3,7 +3,12 @@ import '/commons/index.dart';
 class BaseRepository {
 
   static Future<List<Map<String, dynamic>>> query(String prefix, Map<String, dynamic> form) async {
-    List<dynamic> data = (await HttpClient().get(prefix, params: form))['data'];
+    List<dynamic> data = (await HttpClient().get(prefix, params: {
+      ...form,
+      ...{
+        'enable': true,
+      }
+    }))['data'];
     return List<Map<String, dynamic>>.from(data);
   }
 
@@ -32,7 +37,12 @@ class BaseRepository {
   }
 
   static Future<List<Map<String, dynamic>>> queryAll(String prefix, Map<String, dynamic> query) async {
-    List<dynamic> data = (await HttpClient().get('$prefix/all', params: query))['data'];
+    List<dynamic> data = (await HttpClient().get('$prefix/all', params: {
+      ...query,
+      ...{
+        'enable': true,
+      }
+    }))['data'];
     return List<Map<String, dynamic>>.from(data);
   }
 
