@@ -27,13 +27,17 @@ class _CurrencyInputState extends State<CurrencyInput> {
     BlocProvider.of<SelectOptionsBloc>(context).add(const SelectOptionsInitial(
       prefix: 'currencies',
     ));
+    // 默认选择一个币种
+    BlocProvider.of<AccountFormBloc>(context).add(FieldChanged({
+      'currencyCode': context.read<AuthBloc>().state.initState['group']['defaultCurrencyCode']
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
     final optionModel = context.watch<SelectOptionsBloc>().state.map['currencies'] ?? const SelectOptionsModel();
     return BlocSelector<AccountFormBloc, AccountFormState, String?>(
-      selector: (state) => state.form['currencyCode'] ?? context.read<AuthBloc>().state.initState['group']['defaultCurrencyCode'],
+      selector: (state) => state.form['currencyCode'],
       builder: (context, state) {
         return MySelect(
           label: '币种',
