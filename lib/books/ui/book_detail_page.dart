@@ -59,10 +59,10 @@ class BookDetailPage extends StatelessWidget {
       children: [
         DialogConfirm(
           content: '更改默认账本，需要手动重启程序，确认此操作吗？',
-          enable: !item['default'],
+          enable: !item['current'],
           child: AbsorbPointer(
             child: ElevatedButton(
-              onPressed: (!item['default']) ? () { } : null,
+              onPressed: (!item['current']) ? () { } : null,
               child: const Text('设为默认'),
             ),
           ),

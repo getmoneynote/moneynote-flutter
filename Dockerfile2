@@ -1,0 +1,11 @@
+FROM markliu2018/moneywhere-all:latest
+COPY ./web2/ /var/www/h5
+
+WORKDIR /app
+CMD service php8.1-fpm start && service mysql start && service nginx start && java -jar app.jar
+
+EXPOSE 3306
+EXPOSE 80
+EXPOSE 9092
+EXPOSE 81
+EXPOSE 82

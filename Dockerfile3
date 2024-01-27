@@ -1,0 +1,9 @@
+FROM markliu2018/moneywhere-all-no-mysql:latest
+COPY ./web2/ /var/www/h5
+
+WORKDIR /app
+CMD service nginx start && java -jar app.jar
+
+EXPOSE 9092
+EXPOSE 81
+EXPOSE 82

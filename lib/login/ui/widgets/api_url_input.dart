@@ -31,9 +31,9 @@ class _ApiUrlInputState extends State<ApiUrlInput> {
           controller: controller,
           onChanged: (value) => context.read<LoginBloc>().add(ApiUrlChanged(value)),
           decoration: InputDecoration(
-            hintText: '后台地址(http://xxx/api/v1/)',
+            hintText: '后台地址(http://xxx:43742)',
             contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-            errorText: (state.isPure || state.isValid) ? null : 'http://xxx:xx/api/v1/' ,
+            errorText: (state.isPure || state.isValid) ? null : 'http://xxx:43742' ,
           ),
         );
       },

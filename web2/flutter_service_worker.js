@@ -3,16 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {".idea/modules.xml": "9e76b956e97dbf7d14a4b3d83c8c2375",
-".idea/vcs.xml": "1a16809a3a296b65911ab7b1b4ce2459",
-".idea/web.iml": "c5824d95348e32b80a039f88b729eb70",
-".idea/workspace.xml": "2f5efe2308c9096de16c6750a3324e06",
-"assets/AssetManifest.bin": "6191bfd98644391074661de86ca55d3e",
+const RESOURCES = {"assets/AssetManifest.bin": "6191bfd98644391074661de86ca55d3e",
 "assets/AssetManifest.json": "7c1843247e112026f4c3de5b7feb7b58",
 "assets/assets/logo.png": "9c8bb80cbcf057e7faf6017c33fc2dc0",
 "assets/assets/logo.svg": "15fdda668148077dd7c8fe4e90bab7e3",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
+"assets/fonts/MaterialIcons-Regular.otf": "0474182d90eb830b895431a96e43a954",
 "assets/NOTICES": "3461536b0d4a549ea65878d91b68ce3a",
 "assets/packages/fluttertoast/assets/toastify.css": "910ddaaf9712a0b0392cf7975a3b7fb5",
 "assets/packages/fluttertoast/assets/toastify.js": "18cfdd77033aa55d215e8a78c090ba89",
@@ -30,11 +26,11 @@ const RESOURCES = {".idea/modules.xml": "9e76b956e97dbf7d14a4b3d83c8c2375",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "fcf0bc058da44c65f15664586aa2205f",
-"/": "fcf0bc058da44c65f15664586aa2205f",
-"main.dart.js": "25deaddcb87f5d5a3e87bca128bbcf23",
+"index.html": "94481340f21e62f1bd4712ebf775c087",
+"/": "94481340f21e62f1bd4712ebf775c087",
+"main.dart.js": "a087b6f4357829f92ecbee1c5d097c19",
 "manifest.json": "3b190d10eae7f9bc0f4d1c145ba41aa6",
-"version.json": "8bddc4e072cecc15b7dfae274fe46088"};
+"version.json": "a03658d87f709cf3ba5d2d73bb4a3ba1"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

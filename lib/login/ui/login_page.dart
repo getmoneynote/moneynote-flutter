@@ -34,7 +34,9 @@ class LoginPage extends StatelessWidget {
                 child: const LoginForm(),
               ),
               const SizedBox(height: 20),
-              Text("v1.0.25", style: Theme.of(context).textTheme.bodySmall)
+              Text("1.0.26版本及之后，api地址不用填 /api/v1/。", style: Theme.of(context).textTheme.bodyMedium),
+              const SizedBox(height: 20),
+              Text("v1.0.27", style: Theme.of(context).textTheme.bodySmall)
             ],
           )
         ),

@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  moneywhere-user-fe:
-    build: .
-    environment:
-      USER_API_HOST: http://192.168.2.4:9092
+  moneywhere-h5:
+    image: nginx:1.21-alpine
+    volumes:
+      - ./web2:/usr/share/nginx/html
     ports:
       - "9000:80"
