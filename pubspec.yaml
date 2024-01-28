@@ -24,6 +24,7 @@ dependencies:
   sentry_flutter: ^7.5.2
   flutter_launcher_icons: ^0.13.1
   image_picker: ^0.8.6
+  flutter_easyloading: ^3.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
