@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:moneywhere/flows/data/flow_repository.dart';
 import '/commons/index.dart';
 import '/components/index.dart';
@@ -43,7 +44,14 @@ class _FlowsImageListState extends State<FlowsImageList> {
           listenWhen: (previous, current) => previous.uploadStatus != current.uploadStatus,
           listener: (context, state) {
             if (state.uploadStatus == LoadDataStatus.success) {
+              Message.success('上传成功');
+              EasyLoading.dismiss();
               BlocProvider.of<FlowImageBloc>(context).add(FlowImageReloaded(widget.id));
+            } else if (state.uploadStatus == LoadDataStatus.failure) {
+              Message.error('上传失败');
+              EasyLoading.dismiss();
+            } else if (state.uploadStatus == LoadDataStatus.progress) {
+              EasyLoading.show(status: '上传中...');
             }
           }
         )

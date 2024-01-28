@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import '/commons/index.dart';
 import '/components/index.dart';
@@ -17,38 +16,23 @@ class FlowDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: [
-        BlocListener<FlowImageBloc, FlowImageState>(
-          listenWhen: (previous, current) => previous.uploadStatus != current.uploadStatus,
-          listener: (context, state) {
-            if (state.uploadStatus == LoadDataStatus.success) {
-              Message.success('上传成功');
-              EasyLoading.dismiss();
-            } else if (state.uploadStatus == LoadDataStatus.failure) {
-              Message.error('上传失败');
-              EasyLoading.dismiss();
-            } else if (state.uploadStatus == LoadDataStatus.progress) {
-              EasyLoading.show(status: '上传中...');
-            }
-          }
-        )
-      ],
-      child: DetailPage(
-        title: '账单详情',
-        prefix: 'balance-flows',
-        id: id,
-        buildContent: (DetailPageState state) {
-          return _buildBody(context, state);
-        },
-        onEditPressed: (Map<String, dynamic> item) {
-          if (item['type'] == 'ADJUST') {
-            fullDialog(context, AccountAdjustPage(action: 2, currentRow: item));
-          } else {
-            fullDialog(context, FlowFormPage(action: 2, currentRow: item));
-          }
-        },
-      )
+    return DetailPage(
+      title: '账单详情',
+      prefix: 'balance-flows',
+      id: id,
+      buildContent: (DetailPageState state) {
+        return _buildBody(context, state);
+      },
+      onEditPressed: (Map<String, dynamic> item) {
+        if (item['type'] == 'ADJUST') {
+          fullDialog(context, AccountAdjustPage(action: 2, currentRow: item));
+        } else {
+          fullDialog(context, FlowFormPage(action: 2, currentRow: item));
+        }
+      },
+      // onDeletePressed: (_) {
+      //   BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
+      // },
     );
   }
 

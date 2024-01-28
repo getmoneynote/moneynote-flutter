@@ -19,7 +19,7 @@ class FlowRepository {
   }
 
   static String buildUrl(Map<String, dynamic> file) {
-    return '${session['apiUrl']}flow-files/view?id=${file['id']}&createTime=${file['createTime']}';
+    return '${session['apiUrl']}/api/v1/flow-files/view?id=${file['id']}&createTime=${file['createTime']}';
   }
 
 }
