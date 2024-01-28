@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '/commons/index.dart';
 import '/accounts/index.dart';
@@ -77,6 +78,7 @@ class App extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
           locale: const Locale('zh'),
           routes: AppRouter.routes,
+          builder: EasyLoading.init(),
         ),
       )
     );

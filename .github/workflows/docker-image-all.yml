@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - main
-
+    paths:
+      - 'web2/**'
 
 jobs:
   build:
