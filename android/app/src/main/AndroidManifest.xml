@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.biq.moneywhere">
-   <application
-        android:label="九快记账"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="MoneyNote"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/launcher_icon">
@@ -32,4 +31,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
