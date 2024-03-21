@@ -3,7 +3,7 @@ server {
     listen  [::]:80;
     server_name  localhost;
 
-    client_max_body_size     50M; //文件大小限制，默认1m
+    client_max_body_size     50M;
     client_header_timeout    1m;
     client_body_timeout      1m;
     proxy_connect_timeout     60s;
