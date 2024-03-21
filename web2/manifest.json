@@ -1,11 +1,11 @@
 {
-    "name": "moneywhere_user_flutter",
-    "short_name": "moneywhere_user_flutter",
+    "name": "moneynote",
+    "short_name": "moneynote",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "MoneyNote Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
