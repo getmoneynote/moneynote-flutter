@@ -25,6 +25,16 @@ class SelectController extends BaseController {
     }
   }
 
+  void loadStatic(values) {
+    options = values;
+    if (options.isEmpty) {
+      status = LoadDataStatus.empty;
+    } else {
+      status = LoadDataStatus.success;
+    }
+    update();
+  }
+
   void clear() {
     status = LoadDataStatus.empty;
     options = [];

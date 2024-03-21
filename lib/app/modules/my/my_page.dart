@@ -88,35 +88,44 @@ class MyPage extends StatelessWidget {
                 );
               }),
               const Divider(),
-              ListTile(
-                title: Text(LocaleKeys.my_currentTheme.tr),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    GetBuilder<ThemeController>(builder: (controller) {
-                      return Text(controller.currentLabel());
-                    }),
-                    const Icon(Icons.keyboard_arrow_right)
-                  ],
-                ),
-                onTap: () {
-                  Get.bottomSheet(
-                    BottomSheetContainer(child: GetBuilder<ThemeController>(builder: (controller) {
-                      return Wrap(
-                        children: controller.themes.map((e) =>
-                            ListTile(
-                              title: Text(e['label']),
-                              onTap: () {
-                                Get.find<ThemeController>().changeTheme(e['name'], e['theme']);
-                              },
-                              selected: e['selected'],
-                            )
-                        ).toList(),
-                      );
-                    }))
-                  );
-                },
-              ),
+              GetBuilder<ThemeController>(builder: (controller) {
+                return ListTile(
+                  title: Text(LocaleKeys.my_currentTheme.tr),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(controller.currentLabel()),
+                      const Icon(Icons.keyboard_arrow_right)
+                    ],
+                  ),
+                  onTap: () {
+                    Get.find<SelectController>().loadStatic(controller.themes);
+                    Get.to(() => SelectOption(
+                      title: LocaleKeys.my_currentTheme.tr,
+                      value: controller.themes.firstWhere((e) => e['name'] == controller.current),
+                      onSelect: (value) async {
+                        Get.back();
+                        Get.find<ThemeController>().changeTheme(value['value'], value['theme']);
+                      },
+                    ));
+                    // Get.bottomSheet(
+                    //   BottomSheetContainer(child: GetBuilder<ThemeController>(builder: (controller) {
+                    //     return Wrap(
+                    //       children: controller.themes.map((e) =>
+                    //           ListTile(
+                    //             title: Text(e['label']),
+                    //             onTap: () {
+                    //               Get.find<ThemeController>().changeTheme(e['name'], e['theme']);
+                    //             },
+                    //             selected: e['selected'],
+                    //           )
+                    //       ).toList(),
+                    //     );
+                    //   }))
+                    // );
+                  },
+                );
+              }),
               const Divider(),
               ListTile(
                 title: Text(LocaleKeys.my_currentLang.tr),

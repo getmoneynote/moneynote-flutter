@@ -122,9 +122,15 @@
   },
   "theme": {
     "default": "Default",
-    "purple": "Purple",
     "red": "Red",
+    "orange": "Orange",
+    "yellow": "Yellow",
     "green": "Green",
+    "cyan": "Cyan",
+    "purple": "Purple",
+    "deepPurple": "Deep Purple",
+    "brown": "Brown",
+    "pink": "Pink",
     "dark": "Dark"
   },
   "chart": {

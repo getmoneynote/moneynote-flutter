@@ -122,9 +122,15 @@ class LocaleKeys {
   static const flow_fileCopy = 'flow_fileCopy';
   static const flow_deleteConfirm = 'flow_deleteConfirm';
   static const theme_default = 'theme_default';
-  static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
+  static const theme_orange = 'theme_orange';
+  static const theme_yellow = 'theme_yellow';
   static const theme_green = 'theme_green';
+  static const theme_cyan = 'theme_cyan';
+  static const theme_purple = 'theme_purple';
+  static const theme_deepPurple = 'theme_deepPurple';
+  static const theme_brown = 'theme_brown';
+  static const theme_pink = 'theme_pink';
   static const theme_dark = 'theme_dark';
   static const chart_asset = 'chart_asset';
   static const chart_debt = 'chart_debt';
@@ -247,9 +253,15 @@ class Locales {
     'flow_deleteConfirm':
         'Are you sure? It will also change roll back account balance.',
     'theme_default': 'Default',
-    'theme_purple': 'Purple',
     'theme_red': 'Red',
+    'theme_orange': 'Orange',
+    'theme_yellow': 'Yellow',
     'theme_green': 'Green',
+    'theme_cyan': 'Cyan',
+    'theme_purple': 'Purple',
+    'theme_deepPurple': 'Deep Purple',
+    'theme_brown': 'Brown',
+    'theme_pink': 'Pink',
     'theme_dark': 'Dark',
     'chart_asset': 'Asset',
     'chart_debt': 'Debt',
@@ -368,9 +380,15 @@ class Locales {
     'flow_fileCopy': '复制地址',
     'flow_deleteConfirm': '删除账单会撤回对应账户余额变动且无法恢复，确定删除吗？',
     'theme_default': '默认',
-    'theme_purple': '紫色',
     'theme_red': '红色',
+    'theme_orange': '橙色',
+    'theme_yellow': '黄色',
     'theme_green': '绿色',
+    'theme_cyan': '青色',
+    'theme_purple': '紫色',
+    'theme_deepPurple': '深紫色',
+    'theme_brown': '棕色',
+    'theme_pink': '粉红色',
     'theme_dark': '暗黑',
     'chart_asset': '资产',
     'chart_debt': '负债',

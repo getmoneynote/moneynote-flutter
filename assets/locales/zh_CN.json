@@ -122,9 +122,15 @@
   },
   "theme": {
     "default": "默认",
-    "purple": "紫色",
     "red": "红色",
+    "orange": "橙色",
+    "yellow": "黄色",
     "green": "绿色",
+    "cyan": "青色",
+    "purple": "紫色",
+    "deepPurple": "深紫色",
+    "brown": "棕色",
+    "pink": "粉红色",
     "dark": "暗黑"
   },
   "chart": {
