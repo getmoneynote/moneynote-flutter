@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/generated/locales.g.dart';
+import '../../../core/utils/message.dart';
 import '/app/core/utils/utils.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
 import '../data/login_repository.dart';
@@ -11,7 +13,6 @@ import '/app/core/values/app_values.dart';
 class LoginController extends BaseController {
 
   bool valid = false;
-  FormzSubmissionStatus submissionStatus = FormzSubmissionStatus.initial;
   NotEmptyFormz usernameFormz = const NotEmptyFormz.pure();
   NotEmptyFormz passwordFormz = const NotEmptyFormz.pure();
   NotEmptyFormz apiFormz = const NotEmptyFormz.pure();
@@ -50,16 +51,13 @@ class LoginController extends BaseController {
   void login() async {
     if (valid) {
       try {
-        submissionStatus = FormzSubmissionStatus.inProgress;
-        update();
+        Message.showLoading(msg: LocaleKeys.user_logging.tr);
         String token = await LoginRepository.logIn(username: usernameFormz.value, password: passwordFormz.value);
         authController.onLoggedIn(token, apiFormz.value);
-        submissionStatus = FormzSubmissionStatus.success;
         update();
         reloadState();
       } catch (_) {
-        submissionStatus = FormzSubmissionStatus.failure;
-        update();
+        _.printError();
       }
     }
   }

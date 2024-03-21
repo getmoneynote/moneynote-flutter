@@ -39,7 +39,8 @@
     "passwordErrorText": "请输入密码",
     "apiPlaceholder": "后台地址",
     "apiErrorText": "请输入后台地址",
-    "login": "登录"
+    "login": "登录",
+    "logging": "登录中..."
   },
   "account": {
     "checking": "活期",

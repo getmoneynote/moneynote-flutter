@@ -185,9 +185,10 @@ class MyPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: DialogConfirm(
                   child: AbsorbPointer(
-                    child: ElevatedButton(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.logout),
                       onPressed: () { },
-                      child: Text(LocaleKeys.my_logout.tr),
+                      label: Text(LocaleKeys.my_logout.tr),
                     ),
                   ),
                   onConfirm: () {

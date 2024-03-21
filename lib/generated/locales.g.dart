@@ -47,6 +47,7 @@ class LocaleKeys {
   static const user_apiPlaceholder = 'user_apiPlaceholder';
   static const user_apiErrorText = 'user_apiErrorText';
   static const user_login = 'user_login';
+  static const user_logging = 'user_logging';
   static const account_checking = 'account_checking';
   static const account_credit = 'account_credit';
   static const account_asset = 'account_asset';
@@ -181,6 +182,7 @@ class Locales {
     'user_apiPlaceholder': 'Api Address',
     'user_apiErrorText': 'Please enter api address',
     'user_login': 'Login',
+    'user_logging': 'Logging in...',
     'account_checking': 'Current',
     'account_credit': 'Credit',
     'account_asset': 'Asset',
@@ -310,6 +312,7 @@ class Locales {
     'user_apiPlaceholder': '后台地址',
     'user_apiErrorText': '请输入后台地址',
     'user_login': '登录',
+    'user_logging': '登录中...',
     'account_checking': '活期',
     'account_credit': '信用',
     'account_asset': '资产',

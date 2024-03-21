@@ -39,7 +39,8 @@
     "passwordErrorText": "Please enter password",
     "apiPlaceholder": "Api Address",
     "apiErrorText": "Please enter api address",
-    "login": "Login"
+    "login": "Login",
+    "logging": "Logging in..."
   },
   "account": {
     "checking": "Current",

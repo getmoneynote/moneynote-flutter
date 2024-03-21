@@ -1,9 +1,11 @@
+import 'package:get/get.dart';
 import 'package:moneynote/app/core/utils/utils.dart';
 import '/app/network/http.dart';
 import '/app/core/utils/api_url.dart';
 import '/app/modules/login/data/login_repository.dart';
 import '/app/core/utils/token.dart';
 import '/app/core/base/base_controller.dart';
+import 'login_controller.dart';
 
 enum AuthStatus { uninitialized, authenticated, unauthenticated, loading }
 
@@ -22,6 +24,7 @@ class AuthController extends BaseController {
     await Token.delete();
     status = AuthStatus.unauthenticated;
     initState = const { };
+    Get.delete<LoginController>();
     update();
   }
 

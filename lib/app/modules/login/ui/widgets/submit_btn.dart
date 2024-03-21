@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:formz/formz.dart';
 import '/generated/locales.g.dart';
 import '../../controllers/login_controller.dart';
 
@@ -11,13 +10,10 @@ class SubmitBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(builder: (controller) {
-      return ElevatedButton(
-          onPressed: controller.valid && !controller.submissionStatus.isInProgress ? () { controller.login(); } : null,
-          child: controller.submissionStatus.isInProgress ?
-          const CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            strokeWidth: 1.5,
-          ) : Text(LocaleKeys.user_login.tr)
+      return ElevatedButton.icon(
+        icon: const Icon(Icons.login),
+        onPressed: controller.valid ? () { controller.login(); } : null,
+        label: Text(LocaleKeys.user_login.tr)
       );
     });
   }
