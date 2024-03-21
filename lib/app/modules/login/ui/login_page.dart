@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../my/controllers/language_controller.dart';
 import '/app/core/components/bottomsheet_container.dart';
 import './widgets/login_form.dart';
 import '/app/core/values/app_values.dart';
@@ -41,34 +42,20 @@ class LoginPage extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.language, size: 32),
                 onPressed: () {
-                  String locale = Get.locale?.toString() ?? '';
                   Get.bottomSheet(
-                    BottomSheetContainer(
-                      child: Wrap(
-                        children: [
-                            ListTile(
-                              title: const Text("🇺🇸 English"),
-                              onTap: () {
-                                Get.updateLocale(const Locale('en', 'US'));
-                                if(Get.isBottomSheetOpen ?? false){
-                                  Get.back();
-                                }
-                              },
-                              selected: locale == 'en_US',
-                            ),
-                            ListTile(
-                              title: const Text("🇨🇳 简体中文"),
-                              onTap: () {
-                                Get.updateLocale(const Locale('zh', 'CN'));
-                                if(Get.isBottomSheetOpen ?? false){
-                                  Get.back();
-                                }
-                              },
-                              selected: locale == 'zh_CN',
-                            )
-                          ],
-                      )
-                    )
+                    BottomSheetContainer(child: GetBuilder<LanguageController>(builder: (controller) {
+                      return Wrap(
+                        children: controller.languages.map((e) =>
+                          ListTile(
+                            title: Text(e['label']),
+                            onTap: () {
+                              Get.find<LanguageController>().changeLang(e['name'], e['locale']);
+                            },
+                            selected: e['selected'],
+                          )
+                        ).toList(),
+                      );
+                    }))
                   );
                 },
               ),

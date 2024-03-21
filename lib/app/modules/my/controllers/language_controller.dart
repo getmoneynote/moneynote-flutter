@@ -20,7 +20,11 @@ class LanguageController extends BaseController {
   void setCurrent() async {
     String currentLang = await Language.get();
     if (currentLang.isEmpty) {
-      currentLang = 'en_US';
+      currentLang = Get.deviceLocale.toString();
+      // 只能支持中文或英文
+      if (currentLang != 'en_US' && currentLang != 'zh_CN') {
+        currentLang = 'en_US';
+      }
     }
     var currentLanguage = languages.firstWhere((e) => e['name'] == currentLang);
     Get.updateLocale(currentLanguage['locale']);
