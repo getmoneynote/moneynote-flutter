@@ -13,7 +13,7 @@ List<DoughnutSeries<Map<String, dynamic>, String>> getDefaultDoughnutSeries(xys)
       dataLabelMapper: (data, _) => "${data['x']} : ${data['percent']}%",
       dataLabelSettings: const DataLabelSettings(
           isVisible: true,
-          textStyle: TextStyle(fontSize: 6),
+          textStyle: TextStyle(fontSize: 10),
           labelPosition: ChartDataLabelPosition.outside
       ),
       legendIconType: LegendIconType.circle,
