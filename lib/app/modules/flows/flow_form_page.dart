@@ -68,64 +68,51 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
             )
           ],
         ),
-        body: GestureDetector(
-          onHorizontalDragEnd: (details) {
-            if (details.velocity.pixelsPerSecond.dx > 0) {
-              if (tabController.index > 0) {
-                tabController.animateTo(tabController.index - 1);
-              }
-            } else if (details.velocity.pixelsPerSecond.dx < 0) {
-              if (tabController.index < 2) {
-                tabController.animateTo(tabController.index + 1);
-              }
-            }
-          },
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 30),
-              child: Wrap(
-                runSpacing: 5,
-                children: [
-                  Book(controller: controller),
-                  FormTitle(controller: controller),
-                  CreateTime(controller: controller),
-                  Account(controller: controller),
-                  if (controller.type == 'EXPENSE' || controller.type  == 'INCOME') ...[
-                    Category(controller: controller),
-                    Amount(controller: controller),
-                    Payee(controller: controller)
-                  ],
-                  if (controller.type == 'TRANSFER') ...[
-                    ToAccount(controller: controller),
-                    TransferAmount(controller: controller)
-                  ],
-                  FormTag(controller: controller),
-                  Confirm(controller: controller),
-                  Include(controller: controller),
-                  Notes(controller: controller),
-                  const SizedBox(height: 70),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.send),
-                      onPressed: controller.valid ? () {
-                        Get.find<FlowFormController>().submit();
-                      } : null,
-                      label: Text(LocaleKeys.common_submit.tr)
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.refresh),
-                      onPressed: () {
-                        Get.find<FlowFormController>().reset();
-                      },
-                      label: Text(LocaleKeys.common_reset.tr)
-                    ),
-                  )
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 15, 30),
+            child: Wrap(
+              runSpacing: 5,
+              children: [
+                Book(controller: controller),
+                FormTitle(controller: controller),
+                CreateTime(controller: controller),
+                Account(controller: controller),
+                if (controller.type == 'EXPENSE' || controller.type  == 'INCOME') ...[
+                  Category(controller: controller),
+                  Amount(controller: controller),
+                  Payee(controller: controller)
                 ],
-              ),
+                if (controller.type == 'TRANSFER') ...[
+                  ToAccount(controller: controller),
+                  TransferAmount(controller: controller)
+                ],
+                FormTag(controller: controller),
+                Confirm(controller: controller),
+                Include(controller: controller),
+                Notes(controller: controller),
+                const SizedBox(height: 70),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.send),
+                    onPressed: controller.valid ? () {
+                      Get.find<FlowFormController>().submit();
+                    } : null,
+                    label: Text(LocaleKeys.common_submit.tr)
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.refresh),
+                    onPressed: () {
+                      Get.find<FlowFormController>().reset();
+                    },
+                    label: Text(LocaleKeys.common_reset.tr)
+                  ),
+                )
+              ],
             ),
           ),
         ),
