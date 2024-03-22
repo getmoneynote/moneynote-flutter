@@ -156,6 +156,7 @@ class AccountDetailPage extends StatelessWidget {
                       label: Text(LocaleKeys.common_edit.tr),
                     ),
                   ),
+                  const SizedBox(height: 5),
                   SizedBox(
                     width: double.infinity,
                     child: DialogConfirm(

@@ -34,6 +34,9 @@ class FlowDetailPage extends StatelessWidget {
           case LoadDataStatus.initial:
             return const LoadingPage();
           case LoadDataStatus.success:
+            if (item['book'] == null) {
+              return const SizedBox.shrink();
+            }
             return ContentPage(
               child: Column(
                 children: [
@@ -125,6 +128,7 @@ class FlowDetailPage extends StatelessWidget {
             label: Text(LocaleKeys.common_copy.tr),
           ),
         ),
+        const SizedBox(height: 5),
         SizedBox(
           width: double.infinity,
           child: ElevatedButton.icon(
@@ -138,6 +142,7 @@ class FlowDetailPage extends StatelessWidget {
             label: Text(LocaleKeys.flow_refund.tr)
           ),
         ),
+        const SizedBox(height: 5),
         SizedBox(
           width: double.infinity,
           child: DialogConfirm(
@@ -155,6 +160,7 @@ class FlowDetailPage extends StatelessWidget {
               }
           ),
         ),
+        const SizedBox(height: 5),
       ],
       SizedBox(
         width: double.infinity,
@@ -176,6 +182,7 @@ class FlowDetailPage extends StatelessWidget {
           label: Text(LocaleKeys.common_edit.tr)
         ),
       ),
+      const SizedBox(height: 5),
       SizedBox(
         width: double.infinity,
         child: DialogConfirm(
@@ -192,6 +199,7 @@ class FlowDetailPage extends StatelessWidget {
             }
         ),
       ),
+      const SizedBox(height: 5),
       SizedBox(
         width: double.infinity,
         child: ElevatedButton.icon(
