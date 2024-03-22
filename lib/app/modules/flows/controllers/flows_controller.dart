@@ -40,6 +40,8 @@ class FlowsController extends BaseController {
       items = await BaseRepository.query1('balance-flows', buildQuery());
       if (items.length < AppConst.defaultPageSize) {
         refreshController.loadNoData();
+      } else {
+        refreshController.loadComplete();
       }
       if (items.isNotEmpty) {
         status = LoadDataStatus.success;

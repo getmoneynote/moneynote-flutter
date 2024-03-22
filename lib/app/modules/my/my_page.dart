@@ -36,27 +36,34 @@ class MyPage extends StatelessWidget {
                   }),
               ),
               const Divider(),
-              ListTile(
-                title: Text(LocaleKeys.my_accountOverview.tr),
-                subtitle: GetBuilder<AccountOverviewController>(builder: (controller) {
-                  if (controller.status == LoadDataStatus.success) {
-                    return Text(
-                      LocaleKeys.my_accountOverviewDesc.trParams({
-                        'asset': controller.data[0].toStringAsFixed(2),
-                        'debt': controller.data[1].toStringAsFixed(2),
-                        'net': controller.data[2].toStringAsFixed(2)
+              ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minHeight: 80.0,
+                ),
+                child: Center(
+                  child: ListTile(
+                      title: Text(LocaleKeys.my_accountOverview.tr),
+                      subtitle: GetBuilder<AccountOverviewController>(builder: (controller) {
+                        if (controller.status == LoadDataStatus.success) {
+                          return Text(
+                            LocaleKeys.my_accountOverviewDesc.trParams({
+                              'asset': controller.data[0].toStringAsFixed(2),
+                              'debt': controller.data[1].toStringAsFixed(2),
+                              'net': controller.data[2].toStringAsFixed(2)
+                            }),
+                            softWrap: true,
+                          );
+                        }
+                        return Text(LocaleKeys.common_loading.tr);
                       }),
-                      softWrap: true,
-                    );
-                  }
-                  return const Text('Loading...');
-                }),
-                trailing: IconButton(
-                  onPressed: () {
-                    Get.find<AccountOverviewController>().load();
-                  },
-                  icon: const Icon(Icons.refresh)
-                )
+                      trailing: IconButton(
+                          onPressed: () {
+                            Get.find<AccountOverviewController>().load();
+                          },
+                          icon: const Icon(Icons.refresh)
+                      )
+                  ),
+                ),
               ),
               const Divider(),
               GetBuilder<AuthController>(builder: (controller) {
