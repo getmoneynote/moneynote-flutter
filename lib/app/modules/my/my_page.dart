@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/my/controllers/api_version_controller.dart';
+import '/app/modules/my/controllers/api_version_controller.dart';
 import '../common/select/select_controller.dart';
 import '../common/select/select_option.dart';
 import '/app/modules/my/controllers/account_overview_controller.dart';
@@ -46,7 +46,6 @@ class MyPage extends StatelessWidget {
                         'debt': controller.data[1].toStringAsFixed(2),
                         'net': controller.data[2].toStringAsFixed(2)
                       }),
-                      style: const TextStyle(fontSize: 12),
                       softWrap: true,
                     );
                   }
