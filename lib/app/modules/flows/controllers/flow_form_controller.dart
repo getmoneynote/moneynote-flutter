@@ -77,18 +77,20 @@ class FlowFormController extends BaseController {
     if (valid) {
       try {
         Message.showLoading();
-        bool result = false;
         if (action == 2) {
-          print(buildForm());
-          result = await BaseRepository.update('balance-flows', currentRow['id'], buildForm());
-        } else {
-          print(buildForm());
-          result = await BaseRepository.add('balance-flows', buildForm());
-        }
-        if (result) {
-          Get.back();
+          var res = await BaseRepository.update2('balance-flows', currentRow['id'], buildForm());
           Get.find<FlowsController>().reload();
+          Get.back();
+          Get.find<FlowDetailController>().setId(res['data']);
           Get.find<FlowDetailController>().load();
+          Message.disLoading();
+        } else {
+          bool result = await BaseRepository.add('balance-flows', buildForm());
+          if (result) {
+            Get.back();
+            Get.find<FlowsController>().reload();
+            Get.find<FlowDetailController>().load();
+          }
         }
       } catch (_) {
         _.printError();

@@ -18,7 +18,6 @@ class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MySelect(
-      readOnly: controller.action == 2,
       required: controller.type == 'TRANSFER',
       label: controller.type == 'TRANSFER'? LocaleKeys.flow_from.tr : LocaleKeys.flow_account.tr,
       value: controller.form['account'],

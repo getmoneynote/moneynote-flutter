@@ -18,7 +18,6 @@ class TransferAmount extends StatelessWidget {
     return Column(
       children: [
         MyFormText(
-          readOnly: controller.action == 2,
           required: true,
           label: LocaleKeys.flow_amount.tr,
           value: controller.form['amount'],
@@ -29,7 +28,6 @@ class TransferAmount extends StatelessWidget {
         ),
         if (controller.needConvert) ...[
           MyFormText(
-            readOnly: controller.action == 2,
             required: true,
             label: LocaleKeys.account_detailLabelConvert.trParams({'code': controller.convertCode}),
             value: controller.form['convertedAmount'],

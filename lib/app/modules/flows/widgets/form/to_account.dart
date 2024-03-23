@@ -18,7 +18,6 @@ class ToAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MySelect(
-      readOnly: controller.action == 2,
       required: true,
       label: LocaleKeys.flow_to.tr,
       value: controller.form['to'],

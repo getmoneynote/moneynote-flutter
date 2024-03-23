@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
 import '../flow_repository.dart';
 import '/app/core/utils/message.dart';
 import '/app/core/base/base_repository.dart';
@@ -21,6 +21,11 @@ class FlowDetailController extends BaseController {
     super.onInit();
     load();
     loadFiles();
+  }
+
+  void setId(newId) {
+    id = newId;
+    update();
   }
 
   void load() async {
