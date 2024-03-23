@@ -43,6 +43,7 @@ class AccountsController extends BaseController {
       } else {
         status = LoadDataStatus.empty;
       }
+      refreshController.loadComplete();
       update();
     } catch (_) {
       status = LoadDataStatus.failure;

@@ -48,6 +48,7 @@ class FlowsController extends BaseController {
       } else {
         status = LoadDataStatus.empty;
       }
+      refreshController.loadComplete();
       update();
     } catch (_) {
       _.printError();

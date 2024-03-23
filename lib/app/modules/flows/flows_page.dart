@@ -59,12 +59,15 @@ class FlowsPage extends StatelessWidget {
             return const LoadingPage();
           case LoadDataStatus.success:
             return SmartRefresher(
-              enablePullDown: false,
+              enablePullDown: true,
               enablePullUp: true,
               controller: controller.refreshController,
               child: buildContent(context, controller.items),
               onLoading: () async {
                 Get.find<FlowsController>().loadMore();
+              },
+              onRefresh: () async {
+                Get.find<FlowsController>().reload();
               },
             );
           case LoadDataStatus.empty:

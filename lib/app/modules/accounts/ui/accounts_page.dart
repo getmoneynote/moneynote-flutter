@@ -96,12 +96,15 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
               return const LoadingPage();
             case LoadDataStatus.success:
               return SmartRefresher(
-                enablePullDown: false,
+                enablePullDown: true,
                 enablePullUp: true,
                 controller: controller.refreshController,
                 child: buildContent(context, controller.items),
                 onLoading: () async {
                   Get.find<AccountsController>().loadMore();
+                },
+                onRefresh: () async {
+                  Get.find<AccountsController>().reload();
                 },
               );
             case LoadDataStatus.empty:
