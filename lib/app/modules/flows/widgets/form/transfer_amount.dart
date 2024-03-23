@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/utils/utils.dart';
 import '../../controllers/flow_form_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/form/my_form_text.dart';
@@ -27,14 +28,34 @@ class TransferAmount extends StatelessWidget {
           },
         ),
         if (controller.needConvert) ...[
-          MyFormText(
-            required: true,
-            label: LocaleKeys.account_detailLabelConvert.trParams({'code': controller.convertCode}),
-            value: controller.form['convertedAmount'],
-            onChange: (value) {
-              controller.form['convertedAmount'] = value;
-              controller.checkValid();
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: MyFormText(
+                  required: true,
+                  label: LocaleKeys.account_detailLabelConvert.trParams({'code': controller.convertCode}),
+                  value: controller.form['convertedAmount'],
+                  onChange: (value) {
+                    controller.form['convertedAmount'] = value;
+                    controller.checkValid();
+                  },
+                ),
+              ),
+              IconButton(
+                onPressed: () async {
+                  if (validAmount(controller.form['amount'])) {
+                    double? c = await Get.find<FlowFormController>().calcCurrency(double.parse(controller.form['amount'].toString()));
+                    if (c != null) {
+                      controller.form['convertedAmount'] = c;
+                      controller.checkValid();
+                    }
+                  }
+                },
+                icon: const Icon(Icons.calculate)
+              )
+            ],
           )
         ]
       ],
