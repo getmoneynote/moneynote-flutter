@@ -141,7 +141,12 @@
     "incomeCategory": "收入分类",
     "assetCategory": "资产分类",
     "debtCategory": "负债分类",
-    "totalAmount": "总金额"
+    "totalAmount": "总金额",
+    "searchTime1": "30天内",
+    "searchTime2": "1年内",
+    "searchTime3": "本月",
+    "searchTime4": "今年",
+    "searchTime5": "去年"
   },
   "error": {
     "empty": "请输入",

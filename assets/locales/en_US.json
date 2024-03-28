@@ -141,7 +141,12 @@
     "incomeCategory": "Income Category",
     "assetCategory": "Asset Category",
     "debtCategory": "Debt Category",
-    "totalAmount": "Total Amount"
+    "totalAmount": "Total Amount",
+    "searchTime1": "Within 30 days",
+    "searchTime2": "Within 1 year",
+    "searchTime3": "This Month",
+    "searchTime4": "This Year",
+    "searchTime5": "Last Year"
   },
   "error": {
     "empty": "It is required",

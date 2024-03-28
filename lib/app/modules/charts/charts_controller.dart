@@ -88,5 +88,34 @@ class ChartsController extends BaseController {
     return newQuery;
   }
 
+  void setTime1() {
+    query['minTime'] = DateTime.now().subtract(const Duration(days: 30)).millisecondsSinceEpoch;
+    query['maxTime'] = DateTime.now().millisecondsSinceEpoch;
+    update();
+  }
+
+  void setTime2() {
+    query['minTime'] = DateTime.now().subtract(const Duration(days: 365)).millisecondsSinceEpoch;
+    query['maxTime'] = DateTime.now().millisecondsSinceEpoch;
+    update();
+  }
+
+  void setTime3() {
+    query['minTime'] = DateTime.utc(DateTime.now().year, DateTime.now().month, 1).millisecondsSinceEpoch;
+    query['maxTime'] = DateTime.now().millisecondsSinceEpoch;
+    update();
+  }
+
+  void setTime4() {
+    query['minTime'] = DateTime.utc(DateTime.now().year, 1, 1).millisecondsSinceEpoch;
+    query['maxTime'] = DateTime.now().millisecondsSinceEpoch;
+    update();
+  }
+
+  void setTime5() {
+    query['minTime'] = DateTime.utc(DateTime.now().year-1, 1, 1).millisecondsSinceEpoch;
+    query['maxTime'] = DateTime.utc(DateTime.now().year-1, 12, 31).millisecondsSinceEpoch;
+    update();
+  }
 
 }

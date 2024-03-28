@@ -140,6 +140,11 @@ class LocaleKeys {
   static const chart_assetCategory = 'chart_assetCategory';
   static const chart_debtCategory = 'chart_debtCategory';
   static const chart_totalAmount = 'chart_totalAmount';
+  static const chart_searchTime1 = 'chart_searchTime1';
+  static const chart_searchTime2 = 'chart_searchTime2';
+  static const chart_searchTime3 = 'chart_searchTime3';
+  static const chart_searchTime4 = 'chart_searchTime4';
+  static const chart_searchTime5 = 'chart_searchTime5';
   static const error_empty = 'error_empty';
   static const error_format = 'error_format';
 }
@@ -272,6 +277,11 @@ class Locales {
     'chart_assetCategory': 'Asset Category',
     'chart_debtCategory': 'Debt Category',
     'chart_totalAmount': 'Total Amount',
+    'chart_searchTime1': 'Within 30 days',
+    'chart_searchTime2': 'Within 1 year',
+    'chart_searchTime3': 'This Month',
+    'chart_searchTime4': 'This Year',
+    'chart_searchTime5': 'Last Year',
     'error_empty': 'It is required',
     'error_format': 'Format error',
   };
@@ -400,6 +410,11 @@ class Locales {
     'chart_assetCategory': '资产分类',
     'chart_debtCategory': '负债分类',
     'chart_totalAmount': '总金额',
+    'chart_searchTime1': '30天内',
+    'chart_searchTime2': '1年内',
+    'chart_searchTime3': '本月',
+    'chart_searchTime4': '今年',
+    'chart_searchTime5': '去年',
     'error_empty': '请输入',
     'error_format': '格式错误',
   };
