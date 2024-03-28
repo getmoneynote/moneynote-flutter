@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '/app/core/components/flutter_tree-2.0.3/flutter_tree.dart';
 import '../../base/enums.dart';
 import '../pages/index.dart';
@@ -38,63 +39,69 @@ class _MyTreeOptionState extends State<MyTreeOption> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(widget.pageTitle),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.done),
-            onPressed: () {
-              widget.onSelect.call(newValues);
-            },
-          ),
-        ],
-      ),
-      body:  () {
-        switch (widget.status) {
-          case LoadDataStatus.progress:
-          case LoadDataStatus.initial:
-            return const LoadingPage();
-          case LoadDataStatus.success:
-            TreeNodeData mapServerDataToTreeData(Map data) {
-              return TreeNodeData(
-                extra: data,
-                title: data['label'],
-                expaned: false,
-                checked: newValues.map((e) => e['value']).contains(data['value']),
-                children: List.from(data['children']?.map((x) => mapServerDataToTreeData(x)) ?? []),
-              );
-            }
-
-            List<TreeNodeData> treeData = List.generate(
-              widget.options.length,
-              (index) => mapServerDataToTreeData(widget.options[index]),
-            );
-
-            return TreeView(
-              data: treeData,
-              showFilter: false,
-              showCheckBox: true,
-              onCheck: (checked, data) {
-                if (checked) {
-                  setState(() {
-                    newValues.add(data.extra);
-                  });
-                } else {
-                  setState(() {
-                    newValues.removeWhere((e) => e['value'] == data.extra['value']);
-                  });
-                }
+    return WillPopScope(
+      onWillPop: () async {
+        widget.onSelect.call(newValues);
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(widget.pageTitle),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () {
+                Get.back();
               },
-            );
+            ),
+          ],
+        ),
+        body:  () {
+          switch (widget.status) {
+            case LoadDataStatus.progress:
+            case LoadDataStatus.initial:
+              return const LoadingPage();
+            case LoadDataStatus.success:
+              TreeNodeData mapServerDataToTreeData(Map data) {
+                return TreeNodeData(
+                  extra: data,
+                  title: data['label'],
+                  expaned: false,
+                  checked: newValues.map((e) => e['value']).contains(data['value']),
+                  children: List.from(data['children']?.map((x) => mapServerDataToTreeData(x)) ?? []),
+                );
+              }
 
-          case LoadDataStatus.empty:
-            return const EmptyPage();
-          case LoadDataStatus.failure:
-            return const ErrorPage();
-        }
-      }(),
+              List<TreeNodeData> treeData = List.generate(
+                widget.options.length,
+                    (index) => mapServerDataToTreeData(widget.options[index]),
+              );
+
+              return TreeView(
+                data: treeData,
+                showFilter: false,
+                showCheckBox: true,
+                onCheck: (checked, data) {
+                  if (checked) {
+                    setState(() {
+                      newValues.add(data.extra);
+                    });
+                  } else {
+                    setState(() {
+                      newValues.removeWhere((e) => e['value'] == data.extra['value']);
+                    });
+                  }
+                },
+              );
+
+            case LoadDataStatus.empty:
+              return const EmptyPage();
+            case LoadDataStatus.failure:
+              return const ErrorPage();
+          }
+        }(),
+      ),
     );
   }
 

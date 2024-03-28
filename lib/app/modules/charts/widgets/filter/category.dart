@@ -41,7 +41,7 @@ class Category extends StatelessWidget {
               controller.update();
               Get.back();
             },
-          ));
+          ), fullscreenDialog: true);
         },
       );
     });
