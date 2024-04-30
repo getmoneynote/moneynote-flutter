@@ -2,9 +2,9 @@
 
 本项目是九快记账App端源代码，使用Flutter开发，支持安卓和iOS端。
 
-[安卓APK下载地址](https://file.moneywhere.com/moneywhere1.0.apk)
+[安卓APK下载地址](https://github.com/getmoneynote/moneynote-flutter/releases)
 
-安装后在登录界面可将后端地址改为自己服务器的地址使用。示例：http://www.xxx.com/api/v1/ （别忘了最后的斜杠）
+登录界面后台地址为运行API的地址。示例：http://www.xxx.com， http://ip: （别忘了最后的斜杠）
 
 
 
